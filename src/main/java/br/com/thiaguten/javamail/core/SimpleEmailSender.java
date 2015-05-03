@@ -27,7 +27,7 @@ public class SimpleEmailSender implements EmailSender {
         String[] to = getEmails(email.getTo());
         Address[] addresses = new Address[to.length];
         for (int i = 0; i < to.length; i++) {
-            if (to[i].isEmpty())
+            if (to[i].trim().isEmpty())
                 continue;
             addresses[i] = new InternetAddress(to[i]);
         }

@@ -19,6 +19,16 @@ import java.io.PrintWriter;
 @WebServlet(value = "/emailServlet")
 public class EmailServlet extends HttpServlet {
 
+    private static void close(Closeable resource) {
+        if (resource != null) {
+            try {
+                resource.close();
+            } catch (IOException ignore) {
+                // NOP
+            }
+        }
+    }
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -58,16 +68,6 @@ public class EmailServlet extends HttpServlet {
             e.printStackTrace();
         } finally {
             close(writer);
-        }
-    }
-
-    private static void close(Closeable resource) {
-        if (resource != null) {
-            try {
-                resource.close();
-            } catch (IOException ignore) {
-                // NOP
-            }
         }
     }
 }

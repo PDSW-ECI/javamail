@@ -2,12 +2,16 @@ package br.com.thiaguten.javamail.core;
 
 public interface Email {
 
-    public String getFrom();
+    String getFrom();
 
-    public String getTo();
+    String getTo();
 
-    public String getSubject();
+    String getCc();
 
-    public String getMessage();
+    String getBcc();
+
+    String getSubject();
+
+    String getMessage();
 
 }

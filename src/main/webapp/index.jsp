@@ -10,15 +10,12 @@
             width: 800px;
             margin: 0 auto;
         }
-
         h1 {
             text-align: center;
         }
-
         table {
             width: 100%;
         }
-
         input[type=text], input[type=password], textarea {
             width: 100%;
             margin: 0;
@@ -42,6 +39,14 @@
         <tr>
             <td>TO:</td>
             <td><input name="to" type="text"/></td>
+        </tr>
+        <tr>
+            <td>CC:</td>
+            <td><input name="cc" type="text"/></td>
+        </tr>
+        <tr>
+            <td>BCC:</td>
+            <td><input name="bcc" type="text"/></td>
         </tr>
         <tr>
             <td>SUBJECT:</td>

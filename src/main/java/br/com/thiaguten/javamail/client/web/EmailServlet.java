@@ -1,10 +1,6 @@
 package br.com.thiaguten.javamail.client.web;
 
-import br.com.thiaguten.javamail.core.Email;
-import br.com.thiaguten.javamail.core.EmailSender;
-import br.com.thiaguten.javamail.core.SimpleEmail;
-import br.com.thiaguten.javamail.core.SimpleEmailSender;
-import br.com.thiaguten.javamail.core.support.ProxyAuthenticator;
+import br.com.thiaguten.javamail.core.*;
 
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
@@ -19,6 +15,20 @@ import java.io.PrintWriter;
 @WebServlet(value = "/emailServlet")
 public class EmailServlet extends HttpServlet {
 
+    private static final long serialVersionUID = -6357235852648684816L;
+
+//    static {
+//        // proxy
+//        System.setProperty("http.proxyHost", "");
+//        System.setProperty("http.proxyPort", "");
+//        java.net.Authenticator.setDefault(new java.net.Authenticator() {
+//            @Override
+//            protected java.net.PasswordAuthentication getPasswordAuthentication() {
+//                return new java.net.PasswordAuthentication("", "".toCharArray());
+//            }
+//        });
+//    }
+
     private static void close(Closeable resource) {
         if (resource != null) {
             try {
@@ -31,15 +41,12 @@ public class EmailServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-//        java.net.Authenticator.setDefault(new ProxyAuthenticator("", ""));
-
         final String from = req.getParameter("from");
         final String to = req.getParameter("to");
         final String subject = req.getParameter("subject");
         final String message = req.getParameter("message");
 
-        EmailSender sender = new SimpleEmailSender();
+        EmailSender sender = new SimpleEmailSender(new EmailConfiguration());
         Email email = new SimpleEmail(from, to, subject, message);
         try {
             sender.send(email);

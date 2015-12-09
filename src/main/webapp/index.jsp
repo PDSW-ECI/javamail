@@ -4,7 +4,6 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Javamail</title>
-
     <style type="text/css">
         body {
             width: 800px;
@@ -15,41 +14,53 @@
         }
         table {
             width: 100%;
+            border: 1px #000000 solid;
+        }
+        th, thead {
+            text-align: left;
+            border: 1px #000000 solid;
+            background-color: #90EE90;
+        }
+        input, textarea {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            color: #000000;
+            background-color: #FFFFFF;
+            border: 1px #000000 solid;
         }
         input[type=text], input[type=password], textarea {
             width: 100%;
             margin: 0;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
+            box-sizing: border-box; /* Opera/IE 8+ */
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box; /* Firefox, other Gecko */
         }
     </style>
 </head>
 <body>
 
 <h1>JAVAMAIL</h1>
-
 <form action="emailServlet">
-    <table border="1">
+    <table>
         <tbody>
         <tr>
-            <td>FROM:</td>
+            <th>From:</th>
             <td><input name="from" type="text"/></td>
         </tr>
         <tr>
-            <td>TO:</td>
+            <th>To:</th>
             <td><input name="to" type="text"/></td>
         </tr>
         <tr>
-            <td>CC:</td>
+            <th>Cc:</th>
             <td><input name="cc" type="text"/></td>
         </tr>
         <tr>
-            <td>BCC:</td>
+            <th>Bcc:</th>
             <td><input name="bcc" type="text"/></td>
         </tr>
         <tr>
-            <td>SUBJECT:</td>
+            <th>Subject:</th>
             <td><input name="subject" type="text"/></td>
         </tr>
         <tr>

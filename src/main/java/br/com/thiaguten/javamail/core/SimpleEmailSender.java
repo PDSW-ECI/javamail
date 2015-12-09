@@ -40,11 +40,15 @@ public class SimpleEmailSender extends AbstractEmailSender implements EmailSende
 
         // extract and creates address (cc)
         final Address[] ccAddresses = buildAddress(email.getCc());
-        message.addRecipients(Message.RecipientType.CC, ccAddresses);
+        if (ccAddresses != null && ccAddresses.length > 0) {
+            message.addRecipients(Message.RecipientType.CC, ccAddresses);
+        }
 
         // extract and creates address (bcc)
         final Address[] bccAddresses = buildAddress(email.getBcc());
-        message.addRecipients(Message.RecipientType.BCC, bccAddresses);
+        if (bccAddresses != null && bccAddresses.length > 0) {
+            message.addRecipients(Message.RecipientType.BCC, bccAddresses);
+        }
 
         // extract and creates address (from)
         final Address[] fromAddresses = buildAddress(email.getFrom());

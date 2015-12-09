@@ -12,7 +12,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(value = "/emailServlet")
+@WebServlet(value = "/emailServlet", name = "Email Servlet")
 public class EmailServlet extends HttpServlet {
 
     private static final long serialVersionUID = -6357235852648684816L;

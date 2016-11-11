@@ -6,23 +6,11 @@ import javax.mail.MessagingException;
 
 public class Main {
 
-//    static {
-//        // proxy
-//        System.setProperty("http.proxyHost", "");
-//        System.setProperty("http.proxyPort", "");
-//        java.net.Authenticator.setDefault(new java.net.Authenticator() {
-//            @Override
-//            protected java.net.PasswordAuthentication getPasswordAuthentication() {
-//                return new java.net.PasswordAuthentication("", "".toCharArray());
-//            }
-//        });
-//    }
-
     public static void main(String[] args) {
-        final String from = "";
-        final String to = "";
-        final String subject = "";
-        final String message = "";
+        final String from = "me@gmail.com";
+        final String to = "test@gmail.com";
+        final String subject = "test";
+        final String message = "test";
 
         Email email = new SimpleEmail(from, to, subject, message);
         EmailSender sender = new SimpleEmailSender(new EmailConfiguration());
